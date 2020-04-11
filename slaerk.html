@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style type="text/css">
+		.game {
+			background-image: url(PicsArt_04-11-09.14.34.jpg);
+			background-size: 100% 100%;
+			height: 600px;
+			display: none;
+		}
+		.img-game {
+			position: absolute;
+			left: 0px;
+			top: 400px;
+			width: 225px;
+			height: 200px; 
+			transition: 2s;
+		}
+
+		.btn-game {
+			position: absolute;
+			left:  ;
+			top: 560px;
+			background: #fa8cb8;
+			display: none;
+		}
+
+		.continued {
+			position: absolute;
+			left: 750px;
+			top: 70px;
+			display: none;
+		}
+
+		.chouse {
+			font-family: cursive;
+		}
+
+		.btn-chouse {
+			display: none;
+		}
+
+		.img {
+			width: 750px;
+			height: 400px;
+		}
+
+		.fight-game {
+			background-image: url(PicsArt_04-10-09.31.23.jpg);
+			background-size: 100% 100%;
+			height: 600px;
+			display: none;
+		}
+
+		.xp_ {
+			position: absolute;
+			left: 900px;
+			top : 30px;
+			color: white;
+		}
+
+		.damage_ {
+			position: absolute;
+			left: 900px;
+			top : 70px;
+			color: white;
+		}
+
+		.xp_1 {
+			position: absolute;
+			left: 50px;
+			top : 30px;
+			color: white;
+		}
+
+		.damage_1 {
+			position: absolute;
+			left: 50px;
+			top : 70px;
+			color: white;
+		}
+
+		.figh {
+			background: blue;
+			color: white;
+			font-family: cursive;
+			position: absolute;
+			top: 200px;
+			left: 500px;
+		}		
+	</style>
+</head>
+<body style="background-image: url(PicsArt_04-10-10.32.06.jpg); background-size: 100% 100%; height: 650px;">
+	<div class="bg" >
+		<!--Картинка на фоне-->
+		<div class=" col-7 mx-auto">
+			<img src="s1200.webp" class="img">
+		</div>
+		<!--Окно для диалогов-->
+		<div class="dialog border border-dark col-8 mx-auto mt-3" style="background: lightgreen; height: 130px;">
+			<h2 style="font-family: cursive; font-size: 20px; font-weight: bold; color: green;"><span class="name"></span></h2>
+			<h2 class="mt-3 words" style="font-family: cursive; font-size: 20px; font-weight: bold; color: green;"><span class=""></span></h2> 
+			<h2 style="font-family: cursive; font-size: 20px; font-weight: bold; color: green; display: none;" class="question">Пойдешь с ним?</h2>
+			<h2 style="font-family: cursive; font-size: 20px; font-weight: bold; color: green; display: none;" class="question">Согласишься на предложение Тамаё?</h2> 
+			<button class="btn bg-success text-white border border-light mt-2 ml-0" style="font-family: cursive;"> Start a game</button>
+			<button class="btn bg-warning text-white border border-light mt-2 ml-0 fight" style="font-family: cursive; display: none;"> Start fight</button>
+			<button class="btn continued text-white border border-light mt-2 ml-0" style="font-family: cursive; background: green;">Продолжить</button>
+			<button class="btn bg-success text-white border border-light mt-2 btn-chouse ml-0"><span class="chouse"></span></button>
+			<button class="btn bg-success text-white border border-light mt-2 btn-chouse ml-0"><span class="chouse"></span></button>
+		</div>
+	</div>
+	<!--Игра с Незуко-->
+	<div class="col-10 mx-auto game" ">
+		<img src="PicsArt_04-11-09.15.21.jpg" class="img-game">
+		<button class="btn text-white border border-light btn-game" style="font-family: cursive;">Продолжить</button>
+	</div>
+	<!--Игра с Сусамару-->
+	<div class="fight-game col-10 mx-auto">
+		<h2 class="xp_">Xp : <span class="xp"></span></h2>
+		<h2 class="damage_">Damage : <span class="damage"></span></h2>
+		<h2 class="xp_1">Xp : <span class="xp"></span></h2>
+		<h2 class="damage_1">Damage : <span class="damage"></span></h2>
+		<button class="btn figh border border-light">Удар</button>
+	</div>	
+	<script type="text/javascript">
+		alert("В Японии вместе с людьми бок о бок живут демоны, но многие люди не верят в эти сказки. Так же и не верил парнишка которого зовут Камадо Танджиро. Он жил со своей большой семьей на вершине горы, но однажды он ушел в город, а когда вернулся всю его семью, кроме его сетры Незуко убил демон, сама же Незуко стала демоном и теперь желая сделать сестру вновь человеком Танджиро становится охотником на демонов.")
+		let btn = document.querySelector(".btn");
+		let bg = document.querySelector(".bg");
+		let words = document.querySelector(".words");
+		let name = document.querySelector(".name");
+		let dialog = document.querySelector(".dialog");
+		let img = document.querySelector(".img");
+
+		let chouse = document.querySelectorAll(".chouse");
+		let btnChouse = document.querySelectorAll(".btn-chouse");
+		let continued = document.querySelector(".continued");
+		let question = document.querySelectorAll(".question");
+		
+		let game = document.querySelector(".game");
+		let imgGame = document.querySelector(".img-game");
+		let btnGame = document.querySelector(".btn-game");
+
+		let fight = document.querySelector(".fight");
+		let xpTan = document.querySelector(".xp_");
+		let damageTan = document.querySelector(".damage_");
+		let xpSun = document.querySelector(".xp_1");
+		let damageSun = document.querySelector(".damage_1");
+		let figh = document.querySelector(".figh");
+		let fightGame = document.querySelector(".fight-game");
+		
+		let creatRand = function() {
+			let numRand = Math.random() * 100;
+			let numRound = Math.round(numRand)
+			return numRound;
+		}
+		
+		let susa = {
+			xp : 100,
+			damage : creatRand(),
+		}
+
+		let tan = {
+			xp : 100,
+			damage : creatRand(),
+		}
+
+		let textChouse = {
+			go : "Пойти с демоном" ,
+			no : "Отказать ему и уйти" ,
+			Yes : "Принять предложение" ,
+			none : "Отказат ей" ,
+		}
+
+		let names = {
+			Tanjiro : "Камадо Танджиро :",
+			Nezuko : "Камадо Незуко :",
+			Tamai : "Тамае сан :",
+			Susamaru : "Сусамару :",
+			Ushiro : "Юширо :",
+			nonename : "??? :",
+		}
+
+		let dialogs = {
+			ta : "Привет я Камадо Танджиро, помоги мне найти мою сестру Незуко",
+			tan : "Незуко вот ты где.",
+			nez : "МФ ф ф",
+			ush : "Эй ты знаешь, что она демон и в любой момент может напасть на тебя и убить тебя?",
+			tanj : "Да, но Незуко не нападает на людей и я хочу помочь ей вновь стать человеком",
+			ushi : "Меня зовут Юширо, прошу следуй за мной",
+			tanNOne : "Я никуда не пойду с демоном.",
+			ushir : "Когда мы зайдем не забудь поздароваться!",
+			tam : "Меня зовут Тамае и я ищу лекарство, что бы вновь стать человеком. И мне нужна твое помощь, но это будет опасно",
+			tanji : "Я готов на все, лишь бы Незуко вновь стала человеком",
+			tama : "Тебе нужно победить и собрать кровь сильнейших демонов, 12 лун",
+			tanjiNon : "Простите, но это слишком опасно",
+			tanjir :"Хорошо я все сделаю",
+			susa :"Мне нужены только охотник на демонов и предательница",
+			tanjiro : "Тамае сан обещаю, я сделаю что угодно что бы спасти Незуко",
+
+		}
+		
+		name.innerHTML = names.Tanjiro;
+		words.innerHTML = dialogs.ta;
+
+		btn.onclick = function(){
+			bg.style.display = "none";
+			game.style.display = "block";
+				imgGame.onclick = function(){
+					imgGame.style.opacity = 0;
+					imgGame.style.transition = 3 + "s";
+					btnGame.style.display = "block";
+				}
+		}	
+		btnGame.onclick = function(){
+			words.innerHTML = dialogs.tan;
+			game.style.display = "none";
+			btn.style.display = "none";
+			bg.style.display = "block";
+			continued.style.display = "block";
+			continued.onclick = function(){
+				img.src = "scale_1200 (1).webp";
+				dialog.style.background = "pink";
+				name.style.color = "black";
+				words.style.color = "black";
+				continued.style.background = "#fa8cb8";
+				name.innerHTML = names.Nezuko;
+				words.innerHTML = dialogs.nez;
+				continued.onclick = function(){
+					img.src = "9a35fec0c921d42eb6902fdfbce9903262d583f0r1-1920-1080v2_uhq.jpg";
+					dialog.style.background = "#cbffb5";
+					name.style.color = "green";
+					words.style.color = "green";
+					continued.style.background = "green";
+					name.innerHTML = names.nonename;
+					words.innerHTML = dialogs.ush;
+					continued.onclick = function(){
+						img.src = "Featured-Image-9.jpg";
+						dialog.style.background = "lightgreen";
+						name.style.color = "green";
+						words.style.color = "green";
+						continued.style.background = "green";
+						name.innerHTML = names.Tanjiro;
+						words.innerHTML = dialogs.tanj;
+						continued.onclick = function(){
+							img.src = "9a35fec0c921d42eb6902fdfbce9903262d583f0r1-1920-1080v2_uhq.jpg";
+							dialog.style.background = "#cbffb5";
+							name.style.color = "green";
+							words.style.color = "green";
+							continued.style.background = "green";
+							name.innerHTML = names.Ushiro;
+							words.innerHTML = dialogs.ushi;
+							continued.onclick = function(){
+								img.src = "EFkURPSVUAETtYf.jpg";
+								dialog.style.background = "lightgreen";
+								name.style.color = "green";
+								words.style.color = "green";
+								continued.style.display = "none";
+								name.style.display = "none";
+								words.style.display = "none";
+								btnChouse[0].style.display = "block"
+								btnChouse[1].style.display = "block"
+								chouse[0].innerHTML = textChouse.go;
+								chouse[1].innerHTML = textChouse.no;
+								question[0].style.display = "block";
+								btnChouse[1].onclick = function(){
+									img.src = "maxresdefault.jpg";
+									name.style.display = "block";
+									words.style.display = "block";
+									question[0].style.display = "none";
+									btnChouse[0].style.display = "none";
+									btnChouse[1].style.display = "none";
+									name.innerHTML = names.Tanjiro;
+									words.innerHTML = dialogs.tanNOne;
+									alert("The bad end");
+								}
+								btnChouse[0].onclick = function(){
+									img.src = "D8JmstOWkAYdeHG.jpg";
+									name.style.display = "block";
+									words.style.display = "block";
+									question[0].style.display = "none";
+									btnChouse[0].style.display = "none";
+									btnChouse[1].style.display = "none";
+									continued.style.display = "block";
+									name.innerHTML = names.Ushiro;
+									words.innerHTML = dialogs.ushir;
+									continued.onclick = function(){
+										img.src = "Тамае сан.jpg";
+										dialog.style.background = "purple";
+										name.style.color = "white";
+										words.style.color = "white";
+										continued.style.background = "purple";
+										name.innerHTML = names.Tamai;
+										words.innerHTML = dialogs.tam;
+										continued.onclick = function(){
+											img.src = "Танджиро.jpg";
+											dialog.style.background = "lightgreen";
+											name.style.color = "green";
+											words.style.color = "green";
+											continued.style.background = "green";
+											name.innerHTML = names.Tanjiro;
+											words.innerHTML = dialogs.tanji;
+											continued.onclick = function(){
+												img.src = "Тамае сан.jpg";
+												dialog.style.background = "purple";
+												name.style.color = "white";
+												words.style.color = "white";
+												continued.style.background = "purple";
+												name.innerHTML = names.Tamai;
+												words.innerHTML = dialogs.tama;
+												continued.onclick = function(){
+													img.src = "EFkURPSVUAETtYf.jpg";
+													dialog.style.background = "lightgreen";
+													name.style.color = "green";
+													words.style.color = "green";
+													continued.style.display = "none";
+													name.style.display = "none";
+													words.style.display = "none";
+													btnChouse[0].style.display = "block"
+													btnChouse[1].style.display = "block"
+													chouse[0].innerHTML = textChouse.Yes;
+													chouse[1].innerHTML = textChouse.none;
+													question[1].style.display = "block";
+													btnChouse[1].onclick = function(){
+														img.src = "Танджиро.jpg";
+														name.style.display = "block";
+														words.style.display = "block";
+														question[1].style.display = "none";
+														btnChouse[0].style.display = "none"
+														btnChouse[1].style.display = "none"
+														continued.style.background = "green";
+														name.innerHTML = names.Tanjiro;
+														words.innerHTML = dialogs.tanjiNon;
+														alert("The bad end")
+													}
+													btnChouse[0].onclick = function(){
+														img.src = "Танджиро.jpg";
+														name.style.display = "block";
+														words.style.display = "block";
+														question[1].style.display = "none";
+														btnChouse[0].style.display = "none"
+														btnChouse[1].style.display = "none"
+														continued.style.display = "block"
+														name.innerHTML = names.Tanjiro;
+														words.innerHTML = dialogs.tanjir;
+														continued.onclick = function(){
+															alert("На дом кто-то напал, скорее всего это один из демонов")
+															img.src = "Susa.jpg";
+															dialog.style.background = "orange";
+															name.style.color = "white";
+															words.style.color = "white";
+															continued.style.background = "orange";
+															name.innerHTML = names.Susamaru;
+															words.innerHTML = dialogs.susa;
+															continued.style.display = "none";
+															fight.style.display = "block";
+															fight.onclick = function(){
+																alert("Нажимай на кнопку, что бы атаковать демона, но учти что она тоже может атаковать. Будь осторожен.");
+																bg.style.display = "none";
+																fightGame.style.display = "block";
+																xpTan.innerHTML = tan.xp;
+																damageTan.innerHTML = tan.damage;
+																xpSun.innerHTML = susa.xp;
+																damageSun.innerHTML = susa.damage;
+																figh.onclick = function(){
+																	tan.xp = tan.xp - susa.damage;
+																	susa.xp = susa.xp - tan.damage;
+																	xpTan.innerHTML = tan.xp;
+																	damageTan.innerHTML = tan.damage;
+																	xpSun.innerHTML = susa.xp;
+																	damageSun.innerHTML = susa.damage;
+																	if(tan.xp < 0 || tan.xp == 0){
+																		alert("Ты проиграл, попробуй пройти с начала");
+																	}
+																	if(susa.xp < 0 || susa.xp == 0){
+																		fightGame.style.display = "none";
+																		bg.style.display = "block";
+																		img.src = "10_1560146152.jpg";
+																		dialog.style.background = "lightgreen";
+																		name.style.color = "green";
+																		words.style.color = "green";
+																		fight.style.display = "none";
+																		name.innerHTML = names.Tanjiro;
+																		words.innerHTML = dialogs.tanjiro;
+																		alert("The end, thank you for playing");
+																		alert("Если интересно, что будет дальше советую посмотреть аниме и почитать мангу Клинок рассекающий демонов")
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		setInterval(creatRand, 3000);
+	</script>
+</body>
+</html>
